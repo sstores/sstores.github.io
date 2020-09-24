@@ -60,13 +60,13 @@ function replace(animals, name, replacement) {
 function add (animals, animal) {
     //loop through the animals array 
     for (var i = 0; i < animals.length; i++){
-        //has a name longer than 0, has a species longer than 0, has a name not already assigned to any other animal in array
+         //check has a name not already assigned to any other animal in array
         if (animal.name === animals[i].name) {
             return;
-            
+            // check has a name longer than 0, has a species longer than 0,
         }else if (animal.name.length > 0 && animal.species.length > 0) {
           //if all conditions are met add animal to animals array
-          animals.push(animal)
+          animals.push(animal);
     }
     }
 }
