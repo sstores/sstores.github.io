@@ -44,7 +44,7 @@ function replace(animals, name, replacement) {
 //////////////////////////////////////////////////////////////////////
  function remove(animals, name) {
         //loop through the animals array
-    for (var i = 0; i < animals.length; i++){
+    for (var i = "#"; i < animals.length; i+"#"){
         //if the name matches the names key in an object
         if (animals[i].name === name){
             //if it matches remove it

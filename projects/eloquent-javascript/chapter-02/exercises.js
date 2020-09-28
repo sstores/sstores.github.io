@@ -2,15 +2,43 @@
 ////////////////////////////////////////////////////////////////////////////////
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+//Write a loop that makes seven calls to console.log to output the following triangle:
 
-function triangles() {
+// #
+// ##
+// ###
+// ####
+// #####
+// ######
+// #######
+//arg- number of iterations of loop
 
+function triangles(args, i) {
+
+   for (var i = "#"; i.length <= args; i+= "#"){
+
+    console.log(i);
+    
+   }
+   
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function fizzBuzz() {
+function fizzBuzz(start, end) {
+    
+    for (var i = start; i <= end; i++){
+        if((i % 3 === 0) && (i % 5 === 0)){
+            console.log("FizzBuzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        }else if(i % 5 === 0){
+            console.log("Buzz");
+        }else {
+            console.log(i);
+    }
   
 }
 
@@ -18,8 +46,25 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
+function drawChessboard(rowLength) {
+var chess = "";
 
+for(var i = 1; i < rowLength; i++){
+    
+    if(i % rowLength === 0){
+        chess.push("\n");
+    }else if(i % 2 !== 0){
+        chess.push(" ");
+    }else if(i % 2 === 0){
+        chess.pushs("#");
+    }
+}
+
+        for (var j = 1; j < colLength; j++){
+            
+    
+        }
+    
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,4 +78,5 @@ if ((typeof process !== 'undefined') &&
     fizzBuzz,
     drawChessboard,
   };
+}
 }

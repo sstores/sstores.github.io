@@ -119,71 +119,139 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 // Function 9 - Maybe Noises /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-//Should take an object, if this object has a noises array return them as a string separated by a space, 
+//Should take an object, 
+//check if this object has a noises array : conditional- .hasOwnPrperty
+//return them as a string separated by a space, : .join(" ")
 //if there are no noises return 'there are no noises'
 
 function maybeNoises(object) {
-    var array = Object.entries(object);
+ 
+     if(object.hasOwnProperty("noises") && object["noises"].length === 0){
+        
+         return 'there are no noises';
+       
+     }else if (object.hasOwnProperty("noises")){
+         
+         return object["noises"].join(" ");    
     
-    console.log(array);
-    
-
+    } else{
+         return 'there are no noises';
+         
+  }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 10 - Has Words ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// Should take a string of words and a word and return true if <word> is in <string of words>, otherwise return false
 
 function hasWord(string, word) {
 
+if(string.includes(word)){
+    return true;
+    
+}else {
+    return false;
+}
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 11 - Add Friend //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+//Should take a name and an object and add the name to the object's friends array then return the object
 function addFriend (name, object) {
-
+    
+    object["friends"].push(name);
+    
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 12 - Is Friend ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take a name and an object and return true if <name> is a friend of <object> and false otherwise
 
 function isFriend(name, object) {
-
+     //console.log(object.friends);
+    //console.log(object["friends"].includes(name));
+    //console.log(name)
+   
+    if(Object.keys(object).length === 0){
+        //console.log(false);
+        //console.log(object);
+        return false;
+    }else if (object["friends"].includes(name)){
+         return true;
+        //console.log(true);
+    } else {
+        return false;
+        //console.log(false);    
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 13 - Non-Friends /////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take a name and a list of people, and return a list of all the names that <name> is not friends with
 
+//input: name string and array of people objects
+//look through the array of objects and 
+//acess friends preperty in each object
+//output:array of names of NOT friends with name
 function nonFriends(name, array) {
-
+    let notFriends = [];
+    
+    for (var i = 0; i < array.length; i++){
+    if(array[i]['name'] !== name && !array[i]['friends'].includes(name)){
+        notFriends.push(array[i]['name']);
+    }
+    }return notFriends;
 }
-
+//YOU DID SO GOOD TODAY AND DONT YOUR FORGET IT!!!
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//input: Should take an object, a key and a value. 
+//Should update the property <key> on <object> with new <value>. 
+//If <key> does not exist on <object> create it.
+
+//var obj ={name:"Sarah", hair: "red"}
+
 
 function updateObject(object, key, value) {
-
+    
+            object[key] = value;
+        return object;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 15 - Remove Properties ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//Should take an object and an array of strings. 
+//Should remove any properties on <object> that are listed in <array> 
 
 function removeProperties(object, array) {
-
+    
+    for (let key in object){
+        if (array.includes(key) && array.length > 0){
+            delete object[key];
+        }
+       
+    } return object;
 }
 
 //////////////////////////////////////////////////////////////////////
 // Function 16 - Dedup ///////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//input: Should take an array and 
+//remove duplicates
+//output: return an array 
 
 function dedup(array) {
+    let noDups = [...new Set(array)];
 
+    return noDups;
 }
 
 //////////////////////////////////////////////////////////////////////
