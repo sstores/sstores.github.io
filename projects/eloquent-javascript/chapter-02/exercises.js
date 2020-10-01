@@ -13,7 +13,7 @@
 // #######
 //arg- number of iterations of loop
 
-function triangles(args, i) {
+function triangles(args) {
 
    for (var i = "#"; i.length <= args; i+= "#"){
 
@@ -31,11 +31,11 @@ function fizzBuzz(start, end) {
     
     for (var i = start; i <= end; i++){
         if((i % 3 === 0) && (i % 5 === 0)){
-            console.log("FizzBuzz");
+            console.log("fizzbuzz");
         } else if (i % 3 === 0) {
-            console.log("Fizz");
+            console.log("fizz");
         }else if(i % 5 === 0){
-            console.log("Buzz");
+            console.log("buzz");
         }else {
             console.log(i);
     }
@@ -56,7 +56,7 @@ for(var i = 1; i < rowLength; i++){
     }else if(i % 2 !== 0){
         chess.push(" ");
     }else if(i % 2 === 0){
-        chess.pushs("#");
+        chess.push("#");
     }
 }
 
