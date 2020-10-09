@@ -70,23 +70,37 @@ var obj = {
     hobbies: ["dancing", "coding", "drinking water"] 
 };
 
+/* ACCESSING OBJECTS- we are able to access values within an object in a couple fo ways. One is bracket notation and 
+another is dot notation. Using either of these notations I can add a key value pair to our object above. Bellow are examples of both:
+*/
+
+obj.faveColor = "rainbow"; 
+obj["faveAnimals"] = ["cat", "lizard"];
+
+/*if we were to console.log obj we would see that the keys faveColor and faveAnimal have been added with values of "rainbow" 
+and ["cat", "lizard"].*/
+
+
 /*
 Function
     Functions are chunks of code that a programmer can save to run at a given time for a specific purpose. Functions
     consist of a function declaration with keyword function, an optional function name, followed my parameters inside
     parentheses, a code block inside curly braces, and a function call. Function parameters are essentially place-holders 
-    or function inputs caled arguments. formatted as follows:
+    or function input data, called arguments. 
+    Return statements: a return statement is what allows a function to produce an output. Not every function will have a 
+    return since not every function will produce an output. 
+    
+    Functions may be formatted as follows:
 */
 
 function functionName (parameter1) {
 
-//this is the block of code that will run when the funciton is called
-    console.log("this is a function"); 
+    return "this is a function"; //this is the block of code that will run when the funciton is called.
 };
 
 functionName(arguments); //this is the function call which takes input arguments. 
 
-//NOTE: a function can take as many arguments/parameters as it needs to but must input the same number of arguments and parameters. 
+//NOTE: A function can take as many arguments/parameters as it needs to but must input the same number of arguments and parameters. 
 
 /*
 
@@ -106,7 +120,28 @@ What is the difference between primitive/simple and complex data types?
 Primitive values are passed to a function BY COPY, complex values are BY REFERENCE. What does that mean, and how are
 they different?
     Simple data types take up so little memory when stored that a copy of the actual data value can be stored inside a variable or other container
-    and therefore passed to a function. 
-    Complex data types ar generally larger than the 8 byte storage of a variable and therefor the variable will store the address where the data 
-    is stored, but not store the actual data values. 
+    and therefore passed to a function. */
+    let simple = "simple string";
+    
+    let tooSimple = simple;
+    
+    tooSimple = "this is easy!" //reassigning the value of tooSimple will not change the value of simple since its value was COPIED and put into a new variable...
+    
+    console.log(simple) //==> return "simple string" because althought that value was copied into a new variable, and then changed, the original variable remains unchanged. 
+    
+/*    Complex data types ar generally larger than the 8 byte storage of a variable and therefor the variable will store the address where the data 
+    is stored, but not store the actual data values. This means that the 
 */
+    let complex = {one: "so", two: "complex"};
+    
+    let tooComplex = complex;
+    
+    tooComplex.one = "too";
+    
+    console.log(complex.one)//==> will return "too" because both the references to comple and tooComplex are refering to the same object.
+
+
+
+
+
+

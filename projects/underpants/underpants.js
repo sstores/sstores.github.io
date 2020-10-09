@@ -79,11 +79,10 @@ _.typeOf = function(value){
 */
 
 _.first = function(array, num){
-    if(!Array.isArray(array) || num < 0){
+    if(!Array.isArray(array)){
         return [];
     }else if(typeof num !== "number" || num.length < 1){
-        //!num){
-        //
+       
         return array[0];
     }else{
         return array.splice(0, num);
@@ -113,7 +112,7 @@ _.last = function (array, number){
     if(!Array.isArray(array)){
         return [];
     }else if(typeof number !== "number"){
-        //!num){
+      
         return array[array.length - 1];
     }else if(number > array.length){
         return array;
@@ -531,6 +530,18 @@ _.reduce = function(array, func, seed){
         }
         return previous;
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /** _.extend
