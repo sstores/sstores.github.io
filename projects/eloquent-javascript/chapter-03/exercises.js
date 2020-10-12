@@ -13,26 +13,57 @@ function min(arg1, arg2) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(num) {
-  if (num - 2 && num <= 0){
+  //base cases
+  if (num === 1){ //one is odd
+    return false;
+  }else if (num === 0){ //zero is even
     return true;
-  }else {return false;}
+  //recursive?
+  }else if (num < 0){ //if its negative make it positive and run it. 
+    return isEven(-num);
+  }
+  return isEven(num - 2);//recur subtracting 2 until num is 0 or 1
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function countChars() {
-
+//
+//input: 
+//output:
+function countChars(string, char) {
+ 
+  let count = 0;
+for (let i = 0; i < string.length; i++){
+  if(string[i] === char){
+    
+    count++;
 }
+}
+  return count;
+};
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function countBs() {
-
+//Write a function countBs that takes a string as its only argument and returns 
+//a number that indicates how many uppercase “B” characters there are in the string.
+//input: string
+//output: number of times "B" appears in string
+function countBs(string) {
+  //access string at every character
+  //evaluate if that character = "B"
+  let count = 0;
+for (let i = 0; i < string.length; i++){
+  if(string[i] === "B"){
+    
+    count++;
 }
+}
+  return count;
+};
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

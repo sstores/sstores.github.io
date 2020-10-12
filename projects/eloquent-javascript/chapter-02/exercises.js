@@ -39,32 +39,35 @@ function fizzBuzz(start, end) {
         }else {
             console.log(i);
     }
-  
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+/*Write a program that creates a string that represents an 8×8 grid, using newline characters 
+to separate lines. At each position of the grid there is either a space or a "#" character. 
+The characters should form a chessboard.*/
+//input- size number
+//output- string-checkerboard #
 
-function drawChessboard(rowLength) {
-var chess = "";
-
-for(var i = 1; i < rowLength; i++){
-    
-    if(i % rowLength === 0){
-        chess.push("\n");
-    }else if(i % 2 !== 0){
-        chess.push(" ");
-    }else if(i % 2 === 0){
-        chess.push("#");
-    }
-}
-
-        for (var j = 1; j < colLength; j++){
-            
-    
-        }
-    
+function drawChessboard(size) {
+  
+  let chessboard = "";
+  for(let i = 0; i < size; i++){//1
+      for(let j = 0; j < size; j++){//0
+          if((i + j) % 2 === 0){
+              chessboard += " ";
+          }else{
+              chessboard += "#";
+      }
+  }
+  chessboard += "\n";
+  //console.log(chessboard);
+ }
+//return chessboard;
+ console.log(chessboard);
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -78,5 +81,4 @@ if ((typeof process !== 'undefined') &&
     fizzBuzz,
     drawChessboard,
   };
-}
 }
