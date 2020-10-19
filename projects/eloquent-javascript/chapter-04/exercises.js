@@ -146,20 +146,20 @@ function nth(list, n) {
 //output: boolean- true or false
 
 function deepEqual(a, b) {
-  if (a === b) return true;
+  if (a === b) return true; //same value
   
   if (a == null || typeof a != "object" ||
-      b == null || typeof b != "object") return false;
+      b == null || typeof b != "object") return false; // NOT objects
 
-  let keysA = Object.keys(a), keysB = Object.keys(b);
+  let keysA = Object.keys(a), keysB = Object.keys(b); //set keys equal to a variable to save values
 
-  if (keysA.length != keysB.length) return false;
+  if (keysA.length != keysB.length) return false; //if not same number of them its false
 
-  for (let key of keysA) {
-    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+  for (let key of keysA) {//loop through object if its made it this far it is an object
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false; //if the keysB DOES NOT include keys from keysA as it loops 
   }
 
-  return true;
+  return true; //else return true
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@
 
 
 function flatten(array) {
- array.reduce((arrTotal, curArray) => arrTotal.concat(curArray), []);
+ return array.reduce((arrTotal, curArray) => arrTotal.concat(curArray));
 
 }
 
@@ -51,14 +51,39 @@ function every2(array, predicate) {
 //Remember that each script object has a direction property that can be "ltr" (left to right), "rtl" (right to left), or "ttb" (top to bottom).
 //The dominant direction is the direction of a majority of the characters that have a script associated with them. 
 //The characterScript and countBy functions defined earlier in the chapter are probably useful here.
+/**
+ * function countBy(items, groupName) {
+  let counts = [];
+  for (let item of items) {
+    let name = groupName(item);
+    let known = counts.findIndex(c => c.name == name);
+    if (known == -1) {
+      counts.push({
+        name,
+        count: 1
+      });
+    } else {
+      counts[known].count++;
+    }
+  }
+  return counts;
+}
+ * 
+ * 
+*/
 
 function dominantDirection(text) {
   let counted = countBy(text, char => {
+    //get the unicode value for the current character
     let script = characterScript(char.codePointAt(0));
-    return script ? script.direction : "none";
-  }).filter(({name}) => name != "none");
+    //const unicode = char.charCodeAt();
+    //const script = characterScript(unicode);
+    //console.log(script);
+    
+    return script ? script.direction : "none";//conditional
+  }).filter(({name}) => name !== "none");
 
-  if (counted.length == 0) return "ltr";
+  if (counted.length === 0) return "ltr";
 
   return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
